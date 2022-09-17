@@ -1,14 +1,8 @@
- 
-
-
-%Fourier Transform of Sound File
-
-%Load File
-%file = 'C:\MATLAB7\work\tuning_fork_A4';
-[y,Fs,bits] = wavread('junk.wav');
+file = 'Low D Clarinet.wav';
+[y,Fs] = audioread(file);
 
 Nsamps = length(y);
-t = (1/Fs)*(1:Nsamps)          %Prepare time data for plot
+t = (1/Fs)*(1:Nsamps);          %Prepare time data for plot
 
 %Do Fourier Transform
 y_fft = abs(fft(y));            %Retain Magnitude
@@ -20,7 +14,7 @@ figure
 plot(t, y)
 xlabel('Time (s)')
 ylabel('Amplitude')
-title('Junk in Time Domain')
+title('Time Domain')
 
 %Plot Sound File in Frequency Domain
 figure
@@ -28,4 +22,4 @@ plot(f, y_fft)
 xlim([0 1000])
 xlabel('Frequency (Hz)')
 ylabel('Amplitude')
-title('Frequency Response of junk')
+title('Frequency Response: Brannon plays D3')
